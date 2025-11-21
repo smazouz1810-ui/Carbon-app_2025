@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Cards (Calculator and Methodology) -->
+<div class="calculator-grid">
+
+  
+  <div class="calculator-card">
+    <h3><strong>MOTORCYCLE</strong></h3>
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <div class="form-group">
+          {{form.kms.label(class="form-control-label")}}
+          {{form.kms(class="form-control")}}
+        </div>
+        <div class="form-group">
+          {{form.fuel_type.label(class="form-control-label")}}
+          {{form.fuel_type(class="form-control")}}
+        </div>
+      </fieldset>
+      <br>
+      <div class="form-group">
+        {{ form.submit(class="btn_calculator_new_entry_main") }}
+      </div>
+    </form>
+
+  </div>
+
+
+  <div class="calculator-card">
+    <p><strong>Methodology</strong></p>
+    <p>
+     xx
+    </p>
+  </div>
+
+</div>
+
+{% endblock %}

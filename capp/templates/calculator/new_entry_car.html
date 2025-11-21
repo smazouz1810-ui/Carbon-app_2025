@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Cards (Calculator and Methodology) -->
+<div class="calculator-grid">
+
+  <div class="calculator-card">
+    <h3><strong>CAR</strong></h3>
+    <form method="POST" action="{{ url_for('calculator.new_entry_car') }}">
+      {{ form.hidden_tag() }}
+
+      <fieldset class="form-group">
+
+        <div class="form-group">
+          {{ form.kms.label(class="form-control-label") }}
+          {{ form.kms(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+          {{ form.fuel_type.label(class="form-control-label") }}
+          {{ form.fuel_type(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+          {{ form.vehicle_size.label(class="form-control-label") }}
+          {{ form.vehicle_size(class="form-control") }}
+        </div>
+
+      </fieldset>
+
+      <br>
+
+      <div class="form-group">
+        {{ form.submit(class="btn_calculator_new_entry_main") }}
+      </div>
+
+    </form>
+  </div>
+
+  <div class="calculator-card">
+    <p><strong>Methodology</strong></p>
+    <p>
+      The carbon emissions from driving depend on your vehicle's fuel type and size.
+      Diesel cars produce <strong>229 g CO₂/km</strong>, while petrol cars emit
+      <strong>198 g CO₂/km</strong>. Electric vehicles are the greenest option,
+      producing just <strong>59 g CO₂/km</strong> — roughly one-third the
+      emissions of petrol and one-quarter of diesel vehicles.
+    </p>
+  </div>
+
+</div>
+
+{% endblock %}

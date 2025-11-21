@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Cards (Calculator and Methodology) -->
+<div class="calculator-grid">
+
+
+  <div class="calculator-card">
+    <h3><strong>FERRY</strong></h3>
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <div class="form-group">
+          {{form.kms.label(class="form-control-label")}}
+          {{form.kms(class="form-control")}}
+        </div>
+        <div class="form-group">
+          {{form.fuel_type.label(class="form-control-label")}}
+          {{form.fuel_type(class="form-control")}}
+        </div>
+      </fieldset>
+      <br>
+      <div class="form-group">
+        {{ form.submit(class="btn_calculator_new_entry_main") }}
+      </div>
+    </form>
+
+  </div>
+
+
+  <div class="calculator-card">
+    <p><strong>Methodology</strong></p>
+    <p>
+      Boat emissions vary significantly based on capacity. Passenger boats produce <strong>186 g CO2/pkm</strong>, making them a moderate option for water travel. 
+      Cars transported without passengers emit <strong>377 g CO2/pkm</strong>, more than double the emissions of passenger boats.
+    </p>
+  </div>
+
+</div>
+
+{% endblock %}

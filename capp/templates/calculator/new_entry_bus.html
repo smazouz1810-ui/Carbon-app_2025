@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Cards (Calculator and Methodology) -->
+<div class="calculator-grid">
+
+  <div class="calculator-card">
+    <h3><strong>BUS</strong></h3>
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <div class="form-group">
+          {{form.kms.label(class="form-control-label")}}
+          {{form.kms(class="form-control")}}
+        </div>
+        <div class="form-group">
+          {{form.fuel_type.label(class="form-control-label")}}
+          {{form.fuel_type(class="form-control")}}
+        </div>
+      </fieldset>
+      <br>
+      <div class="form-group">
+        {{ form.submit(class="btn_calculator_new_entry_main") }}
+      </div>
+    </form>
+
+  </div>
+
+  <div class="calculator-card">
+    <p><strong>Methodology</strong></p>
+    <p>
+      Diesel buses emit <strong>30g of CO₂ per kilometer</strong>. Consider greener options to keep your travel more 
+      sustainable!
+    </p>
+  </div>
+
+</div>
+
+{% endblock %}

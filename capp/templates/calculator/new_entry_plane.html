@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Cards (Calculator and Methodology) -->
+<div class="calculator-grid">
+
+  <div class="calculator-card">
+    <h3><strong>PLANE</strong></h3>
+
+    <!-- Formulaire Plane -->
+    <form method="POST" action="{{ url_for('calculator.new_entry_plane') }}">
+    {{ form.hidden_tag() }}
+
+    <fieldset class="form-group">
+        <div class="form-group">
+            {{ form.kms.label(class="form-control-label") }}
+            {{ form.kms(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.flight_type.label(class="form-control-label") }}
+            {{ form.flight_type(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.seat_class.label(class="form-control-label") }}
+            {{ form.seat_class(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.fuel_type.label(class="form-control-label") }}
+            {{ form.fuel_type(class="form-control") }}
+        </div>
+    </fieldset>
+
+    <br>
+
+    <div class="form-group">
+        {{ form.submit(class="btn_calculator_new_entry_main") }}
+    </div>
+</form>
+
+
+  </div>
+
+  <div class="calculator-card">
+    <p><strong>Methodology</strong></p>
+    <p>
+      Economy class produces <strong>127 g CO2/pkm</strong> while business class generates <strong>284 g CO2/pkm</strong>.<br>
+      Economy is significantly more eco-friendly since emissions are shared among more passengers, 
+      whereas business class has fewer passengers per plane, resulting in a higher carbon footprint per person.
+    </p>
+  </div>
+
+</div>
+
+{% endblock %}

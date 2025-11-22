@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Cards (Calculator and Methodology) -->
+<div class="calculator-grid">
+
+  <div class="calculator-card">
+    <h3><strong>CAR</strong></h3>
+    <form method="POST" action="{{ url_for('calculator.new_entry_car') }}">
+      {{ form.hidden_tag() }}
+
+      <fieldset class="form-group">
+
+        <div class="form-group">
+          {{ form.kms.label(class="form-control-label") }}
+          {{ form.kms(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+          {{ form.fuel_type.label(class="form-control-label") }}
+          {{ form.fuel_type(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+          {{ form.vehicle_size.label(class="form-control-label") }}
+          {{ form.vehicle_size(class="form-control") }}
+        </div>
+
+      </fieldset>
+
+      <br>
+
+      <div class="form-group">
+        {{ form.submit(class="btn_calculator_new_entry_main") }}
+      </div>
+
+    </form>
+  </div>
+
+  <div class="calculator-card">
+    <p><strong>Methodology</strong></p>
+    <p>
+      Car emissions are based on the emission factor of the selected vehicle size and fuel type. 
+        These values include the full life cycle of fuel: extraction, production, and distribution,
+        based on data from the Swedish Energy Agency. Energy consumption varies by car type, with 
+        small cars using less fuel and campers using significantly more.
+    </p>
+      <p><strong>Formula:</strong></p>
+          <p>E = d × FE / P</p> 
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="hero">
+    <div class="container">
+        <h1 style="text-align:center; font-size:55px; color: rgb(240, 222, 193)">
+            <span class="text-logo"> About Us</span>
+        </h1>
+        <p style="text-align:center; color: rgb(240, 222, 193); max-width: 800px; margin: auto;">
+            We are an international team of students united by a shared passion 
+            for tackling climate change. Coming from different countries and backgrounds, 
+            we bring diverse ideas and perspectives to the table. With Mr. Eco as our guide, 
+            we use gamification to turn sustainable choices into a fun, engaging, and meaningful
+            journey toward a greener future. 
+        </p>
+    </div>
+</section>
+
+<section class="team-section">
+    <div class="team-grid">
+
+        <div class="team-card">
+            <img src="{{ url_for('static', filename='icons/user3.jpg') }}" alt="Corrado Falco" class="profile-pic">
+            <h3>Corrado Falco</h3>
+            <p>
+                Hi, I’m Corrado, from Italy, and I’m studying Sustainable Economics.
+                My main interest lies in the intersection between innovation, sustainability, and policy.
+                I believe that economic transformation requires both creativity and collaboration, 
+                and I’m motivated to contribute to the shift toward a greener and more inclusive economy.
+            </p>
+            <a class="btn_linkedin" href="https://www.linkedin.com/in/corrado-falco-1ab8b1278/" target="_blank">LinkedIn</a>
+        </div>
+
+        <div class="team-card">
+            <img src="{{ url_for('static', filename='icons/user1.jpg') }}" alt="Sabrina Mazouz" class="profile-pic">
+            <h3>Sabrina Mazouz</h3>
+            <p>
+                Hi, I’m Sabrina, originally from Algeria, and I’m currently studying Sustainable Economics.
+                I’m passionate about understanding how economic systems can evolve to support both people and the planet.
+                Through my studies, I explore how sustainability can be integrated into everyday decision-making 
+                from business models to individual choices to create more conscious and balanced communities.
+            </p>
+            <a class="btn_linkedin" href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" target="_blank">LinkedIn</a>
+        </div>
+
+        <div class="team-card">
+          <img src="{{ url_for('static', filename='icons/user2.jpg') }}" alt="Julia Metlicka" class="profile-pic">
+            <h3>Julia Metlicka</h3>
+            <p>
+                Hi, I’m Julia, from Poland, and I’m pursuing a degree in Sustainable Economics.
+                I’m particularly interested in how global challenges like climate change and social inequality 
+                can be addressed through responsible economic thinking.
+                I enjoy discovering new ways to connect theory with practice especially when it comes 
+                to building a more sustainable and fair future for everyone.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+{% endblock content %}

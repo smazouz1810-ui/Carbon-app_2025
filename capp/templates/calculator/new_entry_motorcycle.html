@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Cards (Calculator and Methodology) -->
+<div class="calculator-grid">
+
+  
+  <div class="calculator-card">
+    <h3><strong>MOTORCYCLE</strong></h3>
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <div class="form-group">
+          {{form.kms.label(class="form-control-label")}}
+          {{form.kms(class="form-control")}}
+        </div>
+        <div class="form-group">
+          {{form.fuel_type.label(class="form-control-label")}}
+          {{form.fuel_type(class="form-control")}}
+        </div>
+      </fieldset>
+      <br>
+      <div class="form-group">
+        {{ form.submit(class="btn_calculator_new_entry_main") }}
+      </div>
+    </form>
+
+  </div>
+
+
+  <div class="calculator-card">
+    <p><strong>Methodology</strong></p>
+    <p>
+      Motorcycle emissions depend on engine size. Smaller motorcycles (<125cc) use less 
+        fuel than medium (125–500cc) or large (>500cc) motorcycles. Emission factors are 
+        taken from the UK Government's methodology report and represent average CO₂ emissions 
+        per kilometer based on real-world use data.
+    </p>
+     <p><strong>Formula:</strong></p>
+        <p>E = d × FE</p>
+  </div>
+
+</div>
+
+{% endblock %}

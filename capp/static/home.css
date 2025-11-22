@@ -1,0 +1,14 @@
+/* Home Page Styles */
+
+.text-overlay {
+  background-color: #181f19;
+    background-color: rgba(24, 31, 25, 0.8);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 20px auto; 
+    color: rgb(240, 222, 193);
+    text-align: center;
+}
+
+

@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="table_main">
+    <div class="container">
+
+        <div class="box">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Transport</th>
+                        <th scope="col">Fuel</th>
+                        <th scope="col">Kilometers</th>
+                        <th scope="col">Total CO2e</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entry in entries %}
+                    <tr>
+                        <td>{{ entry.date.strftime('%m-%d-%Y') }}</td>
+                        <td>{{ entry.date.strftime('%H:%M:%S') }}</td>
+                        <td>{{ entry.transport }}</td>
+                        <td>{{ entry.fuel }}</td>
+                        <td>{{ entry.kms }}</td>
+                        <td>{{ entry.total }}</td>
+                        <td>
+                            <a href="{{ url_for('calculator.delete_emissions', entry_id=entry.id) }}" 
+                               class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div style="margin-top: 20px; text-align: center;">
+                <a href="{{ url_for('calculator.calculator_home') }}" 
+                   class="btn" 
+                   style="background-color: rgb(240, 222, 193); color: #000;">
+                   New Entry
+                </a>
+            </div>
+        </div>
+
+      
+        <div class="box" style="margin-top: 40px; background-color:rgb(240, 222, 193);">
+            <canvas id="emissionChart" width="400" height="200"></canvas>
+            <canvas id="kmsChart" width="400" height="200" style="margin-top: 40px; background-color:rgb(240, 222, 193);"></canvas>
+        </div>
+
+    </div>
+</section>
+
+
+<canvas id="emissionChart"></canvas>
+<canvas id="kmsChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const transports = {{ transports | tojson }};
+    const emissionData = {{ emission_transport | tojson }};
+    const kmsData = {{ kms_transport | tojson }};
+
+    const ctxEmission = document.getElementById('emissionChart').getContext('2d');
+    const emissionChart = new Chart(ctxEmission, {
+        type: 'bar',
+        data: {
+            labels: transports,
+            datasets: [{
+                label: 'CO2e emissions (kg)',
+                data: emissionData,
+                backgroundColor: 'rgba(17, 70, 30, 0.5)', 
+                borderColor: 'rgba(17, 70, 30, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { labels: { color: 'black' } } 
+            },
+            scales: { 
+                x: { ticks: { color: 'black' } },  
+                y: { 
+                    beginAtZero: true,
+                    ticks: { color: 'black' }       
+                }
+            }
+        }
+    });
+
+    const ctxKms = document.getElementById('kmsChart').getContext('2d');
+    const kmsChart = new Chart(ctxKms, {
+        type: 'bar',
+        data: {
+            labels: transports,
+            datasets: [{
+                label: 'Kilometers',
+                data: kmsData,
+                backgroundColor: 'rgba(139, 69, 19, 0.5)', 
+                borderColor: 'rgba(139, 69, 19, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { labels: { color: 'black' } }
+            },
+            scales: { 
+                x: { ticks: { color: 'black' } },
+                y: { 
+                    beginAtZero: true,
+                    ticks: { color: 'black' }
+                }
+            }
+        }
+    });
+</script>
+
+
+{% endblock content %}

@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}Calculator{% endblock %}
+
+{% block content %}
+
+
+<div class="text-overlay">
+    <div class="calculator-container">
+        <p>
+            Start your journey towards a more sustainable travel today, let's investigate together!
+        </p>
+        <br>
+        <div class="section_container_buttons_paper">
+    <a href="{{ url_for('static', filename='paper/Mr_Eco_paper.pdf') }}" target="_blank" class="btn_our_paper">Our Paper</a>
+    <a class="btn_your_data" href="{{ url_for('calculator.your_data') }}" target="_blank">Your Data</a> 
+</div>
+    </div>  
+</div>
+
+
+
+<div class="transport-grid">
+
+    <a href="{{ url_for('calculator.new_entry_car') }}" class="transport-card">
+        <i class="fa-solid fa-car-side"></i>
+        <span class="new-entry-btn">New Entry</span>
+    </a>
+
+    <a href="{{ url_for('calculator.new_entry_plane') }}" class="transport-card">
+        <i class="fa-solid fa-plane"></i>
+        <span class="new-entry-btn">New Entry</span>
+    </a>
+
+    <a href="{{ url_for('calculator.new_entry_train') }}" class="transport-card">
+        <i class="fa-solid fa-train-tram"></i>
+        <span class="new-entry-btn">New Entry</span>
+    </a>
+
+    <a href="{{ url_for('calculator.new_entry_ferry') }}" class="transport-card">
+        <i class="fa-solid fa-ship"></i>
+        <span class="new-entry-btn">New Entry</span>    
+    </a>
+
+    <a href="{{ url_for('calculator.new_entry_bus') }}" class="transport-card">
+        <i class="fa-solid fa-bus"></i>
+        <span class="new-entry-btn">New Entry</span>
+    </a>
+
+    <a href="{{ url_for('calculator.new_entry_motorcycle') }}" class="transport-card">
+       <i class="fa-solid fa-motorcycle"></i>
+       <span class="new-entry-btn">New Entry</span>
+    </a>
+
+</div>
+
+{% endblock %}

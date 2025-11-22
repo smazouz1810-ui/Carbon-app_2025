@@ -1,0 +1,87 @@
+
+
+/* Our Paper Button */
+.btn_our_paper {
+    background-color: #4d8550;
+    color: rgb(240, 222, 193);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Your Data Button */
+.btn_your_data {
+    background-color: #4d8550;
+    color: rgb(240, 222, 193);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.new-entry-btn {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 6px 10px;
+    color: rgb(240, 222, 193);
+    border-radius: 6px;
+    text-align: center;
+}
+
+
+.transport-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.transport-card {
+    background-color: rgba(24, 31, 25, 0.8);
+    padding: 20px;
+    border-radius: 16px;
+    width: 400px;
+    min-height: 200px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transport-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+
+.transport-card i {
+    color: rgb(240, 222, 193);
+    font-size: 6rem;
+    margin-bottom: 15px;
+}
+
+
+
+.calculator-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px;
+}
+
+.calculator-card {
+    background-color: #181f19;
+    color: rgb(240, 222, 193);
+    border-radius: 16px;
+    width: 500px;
+    min-height: 200px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}

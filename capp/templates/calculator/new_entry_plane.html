@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Cards (Calculator and Methodology) -->
+<div class="calculator-grid">
+
+  <div class="calculator-card">
+    <h3><strong>PLANE</strong></h3>
+
+    <!-- Formulaire Plane -->
+    <form method="POST" action="{{ url_for('calculator.new_entry_plane') }}">
+{{ form.hidden_tag() }}
+
+<fieldset class="form-group">
+    <div class="form-group">
+        {{ form.kms.label(class="form-control-label") }}
+        {{ form.kms(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        {{ form.flight_type.label(class="form-control-label") }}
+        {{ form.flight_type(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        {{ form.seat_class.label(class="form-control-label") }}
+        {{ form.seat_class(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        {{ form.ground_dep.label(class="form-control-label") }}
+        {{ form.ground_dep(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        {{ form.ground_arr.label(class="form-control-label") }}
+        {{ form.ground_arr(class="form-control") }}
+    </div>
+</fieldset>
+
+<br>
+
+<div class="form-group">
+    {{ form.submit(class="btn_calculator_new_entry_main") }}
+</div>
+</form>
+
+
+
+  </div>
+
+  <div class="calculator-card">
+    <p><strong>Methodology</strong></p>
+    <p>
+      Flight emissions are calculated using the trip distance, the emission factor
+        (which depends on flight type, fuel type, and altitude effects), and a multiplier 
+        based on seat class. Since premium seats take more space, they represent a higher 
+        share of emissions. Ground transport to and from the airports is also added using 
+        a fixed value of 44 gCO₂/km.
+    </p>
+     <p><strong>Formula:</strong></p>
+        <p>E = d × FE × M + GT</p>
+        <p>
+          
+        where:<br>
+        d = distance (km)<br>
+        FE = emission factor (gCO₂e/pkm)<br>
+        M = seat-class multiplier<br>
+        GT = ground transfer emissions (44 g/km × distance to/from airport)
+    </p>
+  </div>
+
+</div>
+
+{% endblock %}
